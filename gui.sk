@@ -1,0 +1,13 @@
+command /gm:
+    pemission: player.gui
+    permission message: "&4Dazu hast du keine Rechte!"
+    trigger:
+        open virtual chest inventory wih size with size 3 named "&4Gamemode-Selection" to player
+        format gui slot 11 of player with iron sword named "&2Überlabensmodus" with lore "&6Wechsle deinen spielmodus zu:" and "Überleben" to run:
+            set player's gamemode to survival
+            close player's inventory
+        format gui slot 15 of player with oak planks named "&2Keativmodus" with lore "&6Wechsle deinen spielmodus zu:" and "Kreativ" to run:
+            set player's gamemode to survival
+            close player's inventory
+        format gui slot 22 of player with barrier named "&4Menü schliessen" to run: 
+            close player's inventory
