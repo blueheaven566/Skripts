@@ -1,0 +1,63 @@
+#     10, 12, 14, 16
+command /changearmor:
+    permission: armor.change
+    trigger:
+        set metadata tag "Ach" of player to chest inventory with 3 rows named "Wähle deine aktuelle Rüstung aus"
+        set slot 10 of metadata tag "Ach" of player to leather tunic named "&8Lederrüstung"
+        set slot 12 of metadata tag "Ach" of player to iron chestplate named "&7Eisenrüstung"
+        set slot 14 of metadata tag "Ach" of player to gold chestplate named "&6Goldrüstung"
+        set slot 16 of metadata tag "Ach" of player to diamond chestplate named "&bDiamantrüstung"
+        set metadata tag "Ach2" of player to chest inventory with 3 rows named "Wähle die nächste Rüstung aus"
+        set slot 10 of metadata tag "Ach2" of player to leather tunic named "&8Lederrüstung"
+        set slot 12 of metadata tag "Ach2" of player to iron chestplate named "&7Eisenrüstung"
+        set slot 14 of metadata tag "Ach2" of player to gold chestplate named "&6Goldrüstung"
+        set slot 16 of metadata tag "Ach2" of player to diamond chestplate named "&bDiamantrüstung"
+        open (metadata tag "Ach" of player) to player
+
+on inventory click:
+    if event-inventory = (metadata tag "Ach" of player):
+        cancel event 
+        if index of event-slot is 10:
+            remove leather tunic from player's inventory
+            remove leather cap from player's inventory
+            remove leather pants from player's inventory
+            remove leather boots from player's inventory
+            close player's inventory
+            open (metadata tag "Ach2" of player) to player
+        if index of event-slot is 12:
+            remove iron chestplate from player's inventory
+            remove iron pants from player's inventory
+            remove iron boots from player's inventory
+            remove iron helmet from player's inventory
+            close player's inventory
+            open (metadata tag "Ach2" of player) to player
+        if index of event-slot is 14:
+            remove gold chestplate from player's inventory
+            remove gold pants from player's inventory
+            remove gold boots from player's inventory
+            remove gold helmet from player's inventory
+            close player's inventory
+            open (metadata tag "Ach2" of player) to player
+        if index of event-slot is 16:
+            remove diamond chestplate from player's inventory
+            remove diamond pants from player's inventory
+            remove diamond boots from player's inventory
+            remove diamond helmet from player's inventory
+            close player's inventory
+            open (metadata tag "Ach2" of player) to player
+    if event-inventory = (metadata tag "Ach2" of player):
+        cancel event
+        if index of event-slot is 10:
+            equip player with all leather armor
+            close player's inventory
+        if index of event-slot is 12:
+            equip player with all iron armor
+            close player's inventory
+        if index of event-slot is 14:
+            equip player with all gold armor
+            close player's inventory
+        if index of event-slot is 16:
+            equip player with all diamond armor
+            close player's inventory
+            
+            
