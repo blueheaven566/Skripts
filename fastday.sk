@@ -1,0 +1,5 @@
+command /day:
+    permission: set.day
+    trigger:
+        set the time in world to day
+        message "&2Die Zeit wurde erfolgreich auf Tag gestellt!" to player
